@@ -307,7 +307,7 @@ class Scheduler(object):
                 self.apply_entry(entry, producer=self.producer)
                 heappush(H, event_t(self._when(next_entry, next_time_to_run),
                                     event[1], next_entry))
-                return 0
+                return next_time_to_run
             else:
                 heappush(H, verify)
                 return min(verify[0], max_interval)
